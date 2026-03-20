@@ -33,7 +33,7 @@ class Library {
 		
 	}
 
-	void reserve(String title) throws Exception {
+	void reserve(String title) throws BookNotAvailableException {
 		Collection<Book> booksOnly = books.values();
 		Iterator<Book> iterator = booksOnly.iterator();
 		while (iterator.hasNext()) {

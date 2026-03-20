@@ -1,4 +1,5 @@
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,6 +15,13 @@ class MathTest {
 		 
 		int result = math.divide(25, 5);
 		assertEquals(5,result);
+	}
+    @Test
+	void testDivideByZero() {
+		 
+		 assertThrows(ArithmeticException.class,()->{
+			math.divide(25, 0);
+		 });
 	}
 	@Test
 	void testAdd() {

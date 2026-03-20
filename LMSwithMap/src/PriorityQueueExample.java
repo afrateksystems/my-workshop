@@ -6,7 +6,7 @@ public class PriorityQueueExample {
     public static void main(String[] args) {
 
         PriorityQueue<Integer> pq = new PriorityQueue<>();
-//        pq.comparator((b)-> a-b);
+ 
         pq.offer(50);
         pq.add(30);
         pq.add(10);
