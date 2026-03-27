@@ -1,22 +1,48 @@
         body{
             font-family:Arial;
-            background:#ffffff;
+            background:rgb(224, 221, 221);
             display:flex;
             justify-content:center;
             margin-top:50px;
         }
         .app{
-            background: rgb(224, 221, 221);
+            background: rgb(189, 188, 188);
             padding:20px;
             width:300px;
             border-radius:10px;
-            justify-content: center;
-            
+            justify-content: center; 
+            display: flex;
+            flex-direction: column;
+            gap : 7px;
+            align-items: center;
+            width: 29%;
+        }
+        .task-box{
+            background: rgb(224, 221, 221);
+            padding:10px;
+            padding-right: 10%;
+            width:190px;
+            border-radius:10px;
+            display: flex;
+            gap: 85px;
+             
+        }
+        .textbox{
+            width:100%;
+            border-radius: 5px;
+            padding:8px;
+            box-sizing: border-box;
+            border:none;
+             
         }
         li{
             display:flex;
             justify-content:space-between;
             margin-top:10px;
+            align-items: center;
+            padding: 8px;
+            background: rgb(224, 221, 221);
+            border-radius: 5px;
         }
         .completed{
             text-decoration:line-through;
@@ -31,4 +57,28 @@
             background:rgb(255, 1, 1);
             border-radius: 20%;
             border-color:rgb(255, 1, 1) ;
+            
         }
+        .add-button{
+            width: 30%;
+            padding: 8px;
+            border: none;
+            background-color: rgb(19, 170, 240);
+            border-radius: 5px;
+            align-self: center;
+            justify-content: center;
+            
+        }
+        .sort-by-alphabets{
+            width: 30%;
+            padding: 8px;
+            border: none;
+            background-color: rgba(251, 255, 6, 0.863);
+            border-radius: 5px;
+            align-self: center;
+            justify-content: center;
+        }
+        .check-button{
+            gap: 20px;
+        }
+        

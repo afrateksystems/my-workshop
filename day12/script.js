@@ -4,14 +4,24 @@ let todos = JSON.parse(localStorage.getItem('todos')) || [];
         }
         function addTodo(){
             const input = document.getElementById('todo-input');
+            const dateInput = document.getElementById('todo-date')
+            const priority = document.querySelector('input[name="priority"]:checked');
+            const priorityValue =  priority.id;
             const text = input.value.trim();
+            const date = dateInput.value;
             if(text === '') return;
 
-            todos.push({text,completed:false});
+            todos.push({text,date,priority:priorityValue,completed:false});
             input.value = '';
+            dateInput.value = '';
             saveTodos();
             renderTodos();
 
+        }
+        function sort(){
+            todos.sort((a, b) => a.text.localeCompare(b.text));
+            saveTodos();
+            renderTodos();
         }
         function deleteTodo(index){
             todos.splice(index,1);
@@ -31,11 +41,13 @@ let todos = JSON.parse(localStorage.getItem('todos')) || [];
                 if (todo.completed) li.classList.add('completed');
 
                 li.innerHTML = `
-                <span>${todo.text}</span>
-                <div>
+                <div class="task-box"  ${todo.priority}>
+                <span>${todo.text}  ${todo.priority}  ${todo.date}</span>
+                <div class="check-button">
                     <button class="yess"onclick="toggleComplete(${index})">✔</button>
                     <button class="noo"onclick="deleteTodo(${index})">✖</button>
                     
+                </div>
                 </div>
                 `;
                 list.appendChild(li);

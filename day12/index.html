@@ -2,18 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-      
     <title>ToDo app</title>
     <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
     <div class="app"> 
     <h2>ToDo app</h2>
-    <input type="text" id="todo-input" placeholder="Enter task">
-    <button onclick="addTodo()">Add</button>
+    <input type="text" id="todo-input" class="textbox" placeholder="Enter task">
+    <input type="time" id="todo-date" class="textbox" placeholder="Enter Date">
+    <input type="radio" id="urgent" class="radioo" name="priority">
+    <label for="urgent-task">urgent-task</label>
+    <input type="radio" id="normal" class="radioo" name="priority">
+    <label for="normal-task">normal-task</label>
+    <button onclick="addTodo()" class="add-button">Add</button>
+    <button onclick="sort()" class="sort-by-alphabets">Sort</button>
     <ul id="todo-list"></ul>
     </div>
 </body>
 <script src="script.js"></script>
-
+<script src="async.js"></script>
 </html>
