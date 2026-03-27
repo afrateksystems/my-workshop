@@ -1,4 +1,5 @@
 let todos = JSON.parse(localStorage.getItem('todos')) || [];
+const errorDiv = document.getElementById('error');
         function saveTodos(){
             localStorage.setItem('todos',JSON.stringify(todos));
         }
@@ -10,13 +11,16 @@ let todos = JSON.parse(localStorage.getItem('todos')) || [];
             const text = input.value.trim();
             const date = dateInput.value;
             if(text === '') return;
-
+                
             todos.push({text,date,priority:priorityValue,completed:false});
             input.value = '';
             dateInput.value = '';
             saveTodos();
             renderTodos();
-
+        
+        }
+        function validate(){
+            errorDiv.style.display = (event.target.value.trim() !== '')? 'none' :'inline';
         }
         function sort(){
             todos.sort((a, b) => a.text.localeCompare(b.text));

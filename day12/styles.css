@@ -1,12 +1,12 @@
         body{
             font-family:Arial;
-            background:rgb(224, 221, 221);
+            background:rgb(255, 255, 255);
             display:flex;
             justify-content:center;
             margin-top:50px;
         }
         .app{
-            background: rgb(189, 188, 188);
+            background: rgb(235, 228, 228);
             padding:20px;
             width:300px;
             border-radius:10px;
@@ -18,7 +18,7 @@
             width: 29%;
         }
         .task-box{
-            background: rgb(224, 221, 221);
+            background: rgb(190, 188, 188);
             padding:10px;
             padding-right: 10%;
             width:190px;
@@ -26,6 +26,10 @@
             display: flex;
             gap: 85px;
              
+        }
+         
+        .error{
+            color: #e74c3c;
         }
         .textbox{
             width:100%;
@@ -41,12 +45,12 @@
             margin-top:10px;
             align-items: center;
             padding: 8px;
-            background: rgb(224, 221, 221);
+            background: rgb(190, 188, 188);
             border-radius: 5px;
         }
         .completed{
             text-decoration:line-through;
-            color:rgb(176, 180, 178);
+            color:rgb(121, 121, 121);
         }
         .yess{
             background:rgb(0, 255, 106);
