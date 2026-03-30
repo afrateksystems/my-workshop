@@ -9,11 +9,13 @@
     <div class="app"> 
     <h2>ToDo app</h2>
     <input type="text" id="todo-input" onkeyup="validate()" class="textbox" placeholder="Enter task">
-    <input type="time" id="todo-date" class="textbox" placeholder="Enter Date">
-    <input type="radio" id="urgent" class="radioo" name="priority">
-    <label for="urgent-task">urgent-task</label>
-    <input type="radio" id="normal" class="radioo" name="priority">
-    <label for="normal-task">normal-task</label>
+    <input type="datetime-local" min="" id="todo-date" class="textbox" onkeydown="validatetime()"  placeholder="Enter Date">
+    <label>choose the priority of your task</label>
+    <select name="priority" id="priority" class="priority">
+        <option value="High">High</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+    </select>
     <div class="error" id="error">task is mandatory</div>
     <button onclick="addTodo()" class="add-button">Add</button>
     <button onclick="sort()" class="sort-by-alphabets">Sort</button>

@@ -63,6 +63,13 @@
             border-color:rgb(255, 1, 1) ;
             
         }
+        select {
+            background: rgb(201, 202, 201);
+            width: 50%;
+            height: 100%;
+            color: black;
+            border-radius: 3px;
+        }
         .add-button{
             width: 30%;
             padding: 8px;

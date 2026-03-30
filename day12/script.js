@@ -1,13 +1,14 @@
 let todos = JSON.parse(localStorage.getItem('todos')) || [];
 const errorDiv = document.getElementById('error');
+
         function saveTodos(){
             localStorage.setItem('todos',JSON.stringify(todos));
         }
         function addTodo(){
             const input = document.getElementById('todo-input');
             const dateInput = document.getElementById('todo-date')
-            const priority = document.querySelector('input[name="priority"]:checked');
-            const priorityValue =  priority.id;
+            const prioritySelect = document.getElementById('priority');
+            const priorityValue = prioritySelect.value;
             const text = input.value.trim();
             const date = dateInput.value;
             if(text === '') return;
@@ -22,6 +23,7 @@ const errorDiv = document.getElementById('error');
         function validate(){
             errorDiv.style.display = (event.target.value.trim() !== '')? 'none' :'inline';
         }
+         
         function sort(){
             todos.sort((a, b) => a.text.localeCompare(b.text));
             saveTodos();
