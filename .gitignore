@@ -1,2 +1,5 @@
-notes-api/node_modules/
-notes-api/coverage/
+.metadata/
+.postman/
+.vscode/
+node_modules/
+coverage/
