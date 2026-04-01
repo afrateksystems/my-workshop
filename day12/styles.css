@@ -21,10 +21,12 @@
             background: rgb(190, 188, 188);
             padding:10px;
             padding-right: 10%;
+            margin-top:10px;
             width:190px;
             border-radius:10px;
             display: flex;
             gap: 85px;
+            border-color:rgb(143, 142, 142);
              
         }
          
@@ -46,6 +48,7 @@
             align-items: center;
             padding: 8px;
             background: rgb(190, 188, 188);
+            border-color:rgb(143, 142, 142);
             border-radius: 5px;
         }
         .completed{
