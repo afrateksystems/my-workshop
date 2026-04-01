@@ -40,6 +40,7 @@ describe('get /notes',()=>{
         const res = await request(app).post('/notes/',{ title: 'task1', content: 'this is a note' });
         expect(res.status).to.equal(500);
     });
+
     it('test to post new note which is empty',async ()=>{
         console.log(request);
         const res = await request(app).post('/notes/').send({});
@@ -66,8 +67,19 @@ describe('get /notes',()=>{
     });
     it("Test updating status", async () => {
     const saveResponse = await request(app).post('/notes/').send({ title: 'task1', content: 'this is a note' });
-    const response = await request(app).put('/notes/'+saveResponse.body.id).send({ status: "Content"});
+    const response = await request(app).put('/notes/'+saveResponse.body.id).send({ status: "closed"});
     expect(response.status).to.equal(200);
+    });
+    it("Test updating date", async () => {
+    const saveResponse = await request(app).post('/notes/').send({ title: 'task1', content: 'this is a note' });
+    const response = await request(app).put('/notes/'+saveResponse.body.id).send({ createdAt: "Content"});
+    expect(response.status).to.equal(400);
+    });
+    
+    it("Test updating the closed status", async () => {
+    const saveResponse = await request(app).post('/notes/').send({ title: 'task1', content: 'this is a note' });
+    const response = await request(app).put('/notes/'+saveResponse.body.id).send({ status: "Content"});
+    expect(response.status).to.equal(400);
     });
     it("Test updating with invalid id", async () => {
     const saveResponse = await request(app).post('/notes/').send({ title: 'task1', content: 'this is a note' });
