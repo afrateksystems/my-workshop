@@ -11,6 +11,7 @@ test("adds note on submit",()=>{
     fireEvent.click(screen.getByText(/add/i));
     expect(addNote).toHaveBeenCalledWith({
          "title": "Note 1",
-         "status": "created"
+         "status": "open"
     });
+
 });
