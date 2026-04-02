@@ -6,8 +6,11 @@ test("adds note on submit",()=>{
     render(<NoteForm addNote={addNote}/>);
 
     fireEvent.change(screen.getByPlaceholderText(/enter note/i),{
-        target: {value:"Test Note"}
+        target: {value:"Note 1"}
     });
     fireEvent.click(screen.getByText(/add/i));
-    expect(addNote).toHaveBeenCalledWith("Test Note");
+    expect(addNote).toHaveBeenCalledWith({
+         "title": "Note 1",
+         "status": "created"
+    });
 });
