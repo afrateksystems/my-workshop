@@ -65,7 +65,10 @@ button {
   border-radius: 5px;
   cursor: pointer;
 }
+button:hover{
+  background-color: #cc5607;
+}
 input[type="checkbox"]:checked{
-  color: #7c3200;
+  background-color: #7c3200;
   border-radius: 0%;
 }
