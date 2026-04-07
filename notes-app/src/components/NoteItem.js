@@ -21,6 +21,7 @@ function NoteItem({note,deleteNote}){
             <td style={{border:"1px solid black",padding: "8px"}}>{note.content}</td>
             <td style={{border:"1px solid black",padding: "8px"}}>{note.date}</td>
             <td style={{border:"1px solid black",padding: "8px"}}>{note.time}</td>
+            <td style={{border:"1px solid black",padding: "8px"}}>{note.status}</td>
             <td style={{border:"1px solid black",padding: "8px"}}>{note.priority}</td>
             <td style={{border:"1px solid black",padding: "8px"}}><button className="delete-btn" onClick={handleDeleteClick}>Delete</button></td>
         </tr>

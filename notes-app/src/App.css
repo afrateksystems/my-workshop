@@ -10,6 +10,7 @@ body {
   justify-content: space-between;
   align-items: center;
   background-color: #7c3200;
+  opacity: 0.5;
   padding: 15px 30px;
   color: #fff;
   border-radius: 0 0 10px 10px;
@@ -27,12 +28,18 @@ h1 {
   text-align: center;
   color: #5f2503;
 }
-div {
+.graph {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+.note-container {
   max-width: 800px;
   margin: 20px auto;
   padding: 20px;
   border-radius: 10px;
-   
   background-color: rgb(240, 144, 76);
 }
 table {
@@ -132,7 +139,7 @@ button.delete-btn:hover {
   z-index: 1000;
 } 
 .modal-content {
-  background-color: white;
+  background-color: blanchedalmond;
   padding: 30px 40px;       
   border-radius: 12px;      
   text-align: center;
@@ -170,3 +177,112 @@ button.delete-btn:hover {
   border-radius: 5px;
   cursor: pointer;
 }
+
+ 
+.note-inputrange {
+  -webkit-appearance: none; 
+  width: 100%;
+  height: 8px;
+  border-radius: 5px;
+  background: #e75d00;  
+  outline: none;
+  transition: background 0.3s;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+ 
+.note-inputrange:hover {
+  background: #ad4601;
+}
+ 
+.note-inputrange::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #a03808; 
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  transition: background 0.3s, transform 0.2s;
+}
+
+.note-inputrange::-webkit-slider-thumb:hover {
+  background: #c5480e;
+  transform: scale(1.2);
+}
+.error{
+  color: red;
+}
+ 
+
+.note-inputrange::-moz-range-thumb:hover {
+  background: #813502;
+  transform: scale(1.2);
+}
+/* Radio labels */
+.radioclosedlabel,
+.radioopenlabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  user-select: none;
+}
+
+/* Open status */
+.radioclosedlabel {
+  background-color: #ffb478; /* matches note-form bg */
+  color: #5f2503;
+}
+
+.radioclosedlabel:hover {
+  background-color: #f0904c; /* darker on hover */
+  color: #fff;
+}
+
+/* Closed status */
+.radioopenlabel {
+  background-color: #5f1e00; /* dark earthy tone */
+  color: #fff;
+}
+
+.radioopenlabel:hover {
+  background-color: #943104;
+  color: #fff;
+}
+
+/* Hide default radio button */
+.radioclosed,
+.radioopen {
+  display: none;
+}
+
+/* Custom radio circle */
+.radioclosedlabel::before,
+.radioopenlabel::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #5f2503;
+  background-color: #fff;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+ 
+.radioclosed:checked + .radioclosedlabel::before,
+.radioopen:checked + .radioopenlabel::before {
+  background-color: #5f2503;
+  transform: scale(1.1);
+}
+ 
+.radioclosedlabel + .radioopenlabel {
+  margin-left: 15px;
+}
+ 

@@ -12,7 +12,7 @@ exports.getNoteById = async (request,response) =>{
     response.json(note);
 };
 exports.createNote = async(request,response) =>{
-    const{title,content,date,time,priority} = request.body;
+    const{title,content,date,time,status,priority} = request.body;
      
     if(!title || !content){
         return response.status(400).json({error:'title & content required'});
@@ -25,6 +25,7 @@ exports.createNote = async(request,response) =>{
         content,
         date,
         time,
+        status,
         priority
     };
     notes.push(newNote);
@@ -45,11 +46,11 @@ exports.updateNote = async(request,response) =>{
     // if("createdAt" in request.body){
     //     return response.status(400).json({ error: 'date cannot be changed' });
     // }
-    // const newstatus = request.body.status;
-    // if (newstatus !== undefined){
-    // if(newstatus.toLowerCase() !== "closed"){
-    //     return response.status(400).json({ error: 'closed status cannot be changed' });
-    // }}
+    const newstatus = request.body.status;
+    if (newstatus !== undefined){
+        if(newstatus.toLowerCase() !== "closed"){
+                 return response.status(400).json({ error: 'closed status cannot be changed' });
+     }}
     if ("date" in request.body || "time" in request.body) {
     return response.status(400).json({ error: 'date/time cannot be changed' });
     }

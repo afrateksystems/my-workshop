@@ -396,5 +396,281 @@
     "date": "2026-04-07",
     "time": "15:43",
     "priority": 5
+  },
+  {
+    "id": 1775550332574,
+    "title": "note 1",
+    "content": "dddd",
+    "date": "",
+    "time": "",
+    "priority": 2
+  },
+  {
+    "id": 1775550337962,
+    "title": "note 1",
+    "content": "dddd",
+    "date": "2026-04-07",
+    "time": "15:55",
+    "priority": 2
+  },
+  {
+    "id": 1775550433228,
+    "title": "note 1",
+    "content": "korean",
+    "date": "2026-04-07",
+    "time": "17:57",
+    "priority": 18
+  },
+  {
+    "id": 1775551396628,
+    "title": "2hddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd2hddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd2hddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd2hdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddv2hddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd2hddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd2hddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd2hddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd2hddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd2hdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddjjsjksjskjskjsksjksj",
+    "content": "sssss",
+    "date": "2026-04-06",
+    "time": "14:13",
+    "priority": 5
+  },
+  {
+    "id": 1775551579519,
+    "title": "note 1",
+    "content": "wwwww",
+    "date": "2026-04-05",
+    "time": "14:16",
+    "priority": 5
+  },
+  {
+    "id": 1775551616347,
+    "title": "note 1",
+    "content": "ssss",
+    "date": "2026-04-07",
+    "time": "14:20",
+    "priority": 5
+  },
+  {
+    "id": 1775552337364,
+    "title": "note 1",
+    "content": "dddd",
+    "date": "2026-04-16",
+    "time": "14:28",
+    "priority": 17
+  },
+  {
+    "id": 1775552562248,
+    "title": "note 1",
+    "content": "dddddd",
+    "date": "2026-04-08",
+    "time": "13:32",
+    "priority": 18
+  },
+  {
+    "id": 1775552624388,
+    "title": "note 1",
+    "content": "ssns",
+    "date": "2026-04-15",
+    "time": "14:33",
+    "priority": 5
+  },
+  {
+    "id": 1775552643658,
+    "title": "note 1",
+    "content": "the content",
+    "date": "2026-04-08",
+    "time": "14:33",
+    "priority": 1
+  },
+  {
+    "id": 1775552719882,
+    "title": "ver good",
+    "content": "the content shouldnt be emptyyyyyyyyyyy",
+    "date": "2026-04-15",
+    "time": "14:35",
+    "priority": 16
+  },
+  {
+    "id": 1775552801710,
+    "title": "note 1",
+    "content": "content is added ",
+    "date": "2026-04-09",
+    "time": "14:36",
+    "priority": 3
+  },
+  {
+    "id": 1775554305305,
+    "title": "notess",
+    "content": "dddddd",
+    "date": "2026-04-14",
+    "time": "15:01",
+    "status": "open",
+    "priority": 13
+  },
+  {
+    "id": 1775554530490,
+    "title": "notesss",
+    "content": "ddddd is the content",
+    "date": "2026-04-17",
+    "time": "15:05",
+    "status": "closed",
+    "priority": 5
+  },
+  {
+    "id": 1775556656114,
+    "title": "note 1",
+    "content": "sjsjsjsjs",
+    "date": "2026-04-07",
+    "time": "20:40",
+    "status": "open",
+    "priority": 5
+  },
+  {
+    "id": 1775556664313,
+    "title": "noaaaaaaaa",
+    "content": "sjsjsjsjs",
+    "date": "2026-04-07",
+    "time": "20:40",
+    "status": "closed",
+    "priority": 5
+  },
+  {
+    "id": 1775556667135,
+    "title": "noaaaaaaaa",
+    "content": "sjsjsjsjs",
+    "date": "2026-04-07",
+    "time": "20:40",
+    "status": "open",
+    "priority": 5
+  },
+  {
+    "id": 1775556668277,
+    "title": "noaaaaaaaa",
+    "content": "sjsjsjsjs",
+    "date": "2026-04-07",
+    "time": "20:40",
+    "status": "open",
+    "priority": 5
+  },
+  {
+    "id": 1775556671739,
+    "title": "noaaaaaaaa",
+    "content": "sjsjsjs",
+    "date": "2026-04-07",
+    "time": "20:40",
+    "status": "open",
+    "priority": 5
+  },
+  {
+    "id": 1775556675151,
+    "title": "noaaaaaaaa",
+    "content": "sjsjsjssssss",
+    "date": "2026-04-07",
+    "time": "20:40",
+    "status": "open",
+    "priority": 5
+  },
+  {
+    "id": 1775557035714,
+    "title": "note 1",
+    "content": "hgkgk",
+    "date": "2026-05-01",
+    "time": "15:47",
+    "status": "open",
+    "priority": 10
+  },
+  {
+    "id": 1775557038556,
+    "title": "note 1",
+    "content": "hgkgk",
+    "date": "2026-05-01",
+    "time": "15:47",
+    "status": "closed",
+    "priority": 10
+  },
+  {
+    "id": 1775557041590,
+    "title": "note 1",
+    "content": "hgkgk",
+    "date": "2026-05-01",
+    "time": "15:47",
+    "status": "open",
+    "priority": 10
+  },
+  {
+    "id": 1775557042555,
+    "title": "note 1",
+    "content": "hgkgk",
+    "date": "2026-05-01",
+    "time": "15:47",
+    "status": "open",
+    "priority": 10
+  },
+  {
+    "id": 1775557043398,
+    "title": "note 1",
+    "content": "hgkgk",
+    "date": "2026-05-01",
+    "time": "15:47",
+    "status": "open",
+    "priority": 10
+  },
+  {
+    "id": 1775557046409,
+    "title": "note 1",
+    "content": "hgkgk",
+    "date": "2026-05-01",
+    "time": "15:47",
+    "status": "closed",
+    "priority": 10
+  },
+  {
+    "id": 1775559015744,
+    "title": "note 1",
+    "content": "snsjssnjss",
+    "date": "2026-04-23",
+    "time": "16:20",
+    "status": "closed",
+    "priority": 5
+  },
+  {
+    "id": 1775559018895,
+    "title": "note 1",
+    "content": "snsjssnjss",
+    "date": "2026-04-23",
+    "time": "16:20",
+    "status": "open",
+    "priority": 5
+  },
+  {
+    "id": 1775559019582,
+    "title": "note 1",
+    "content": "snsjssnjss",
+    "date": "2026-04-23",
+    "time": "16:20",
+    "status": "open",
+    "priority": 5
+  },
+  {
+    "id": 1775559020286,
+    "title": "note 1",
+    "content": "snsjssnjss",
+    "date": "2026-04-23",
+    "time": "16:20",
+    "status": "open",
+    "priority": 5
+  },
+  {
+    "id": 1775559020943,
+    "title": "note 1",
+    "content": "snsjssnjss",
+    "date": "2026-04-23",
+    "time": "16:20",
+    "status": "open",
+    "priority": 5
+  },
+  {
+    "id": 1775559023746,
+    "title": "note 1",
+    "content": "snsjssnjss",
+    "date": "2026-04-23",
+    "time": "16:20",
+    "status": "closed",
+    "priority": 5
   }
 ]
