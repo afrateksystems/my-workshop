@@ -5,7 +5,7 @@ import NoteList from './components/NoteList';
 
 function App() {
   const [notes,setNotes] = useState([]);
-
+  const [view ,setView] = useState("display");
   const addNote = (note) =>{
     const newNote = { ...note };
     newNote.id = Date.now();
@@ -16,9 +16,16 @@ function App() {
   };
   return (
     <div >
+      <nav className='nav-bar'><span onClick={()=> setView("display")}style={{ cursor: "pointer" }}>Display Notes</span>  |   <span onClick={()=> setView("add")}style={{ cursor: "pointer" }}>Add Notes</span> </nav>
        <h1>Notes App</h1>
-       <NoteForm addNote={addNote} />
-       <NoteList notes={notes} deleteNote={deleteNote} />
+       {view === "display" && (
+        <NoteList notes={notes} deleteNote={deleteNote} />
+       )}
+       {view === "add" && (
+        <NoteForm addNote={addNote} />
+       )}
+       
+       
     </div>
   );
 }

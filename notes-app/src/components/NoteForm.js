@@ -1,11 +1,13 @@
 import axios from "axios";
 import { useState } from "react";
- 
+import '../App.css';
 function NoteForm({ addNote}){
     const [note,setNote] = useState({
         title:"note 1",
         content:"",
-        status:"open"
+        date :"",
+        time:"",
+        priority:5
     });
 
     const handleSubmit = (e) =>{
@@ -23,12 +25,14 @@ function NoteForm({ addNote}){
     })
     }
     return(
-        <form onSubmit={handleSubmit}>
-            <input placeholder="Enter the title"  value={note.title} onChange={(e) => setNote({...note,title:e.target.value})}/>
+        <form className="note-form"onSubmit={handleSubmit}>
+            <input className="note-input" placeholder="Enter the title"  value={note.title} onChange={(e) => setNote({...note,title:e.target.value})}/>
            {/* <input value={note.status} onChange={(e) => setNote({...note,status:e.target.value})} /> */}
-            <input placeholder="enter the content" value={note.content} onChange={(e) => setNote({...note,content:e.target.value})}/>
-            <label>status</label><input type="checkbox" onChange={(e) =>setNote({...note,status:e.target.checked ? "closed" : "open"})}/>
-            <button>Add</button>        
+            <input className="note-input" placeholder="enter the content" value={note.content} onChange={(e) => setNote({...note,content:e.target.value})}/>
+            
+            <input className="note-input" type="datetime-local" onChange={(e) => { const value = e.target.value; const [date, time] = value.split("T"); setNote({ ...note, date, time });}}/>
+            <label>Priority</label><input className="note-inputrange" type="range" min="1" max="20" value={note.priority} onChange={(e) => setNote({ ...note, priority: parseInt(e.target.value) })}/>
+            <button className="add-btn">Add</button>        
         </form>
     );
 }
