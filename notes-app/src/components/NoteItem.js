@@ -1,10 +1,37 @@
+import React, { useState } from 'react';
 import '../App.css';
+import ConfirmModal from './confirmModal';
 function NoteItem({note,deleteNote}){
+    const [showModal, setShowModal] = useState(false);
+    const handleDeleteClick = () => {
+        setShowModal(true);
+    };
+    const handleConfirm = () => {
+        deleteNote(note.id);
+        setShowModal(false);
+    };
+    const handleCancel = () => {
+        setShowModal(false);
+    };
+    
     return(
-        <li class="note-item">
-            {note.title} , {note.status}
-            <button onClick={() => deleteNote(note.id)}>Delete</button>
-        </li>
+        <>
+        <tr style={{border:"1px solid black",padding: "8px"}}>
+            <td style={{border:"1px solid black",padding: "8px"}}>{note.title}</td>
+            <td style={{border:"1px solid black",padding: "8px"}}>{note.content}</td>
+            <td style={{border:"1px solid black",padding: "8px"}}>{note.date}</td>
+            <td style={{border:"1px solid black",padding: "8px"}}>{note.time}</td>
+            <td style={{border:"1px solid black",padding: "8px"}}>{note.priority}</td>
+            <td style={{border:"1px solid black",padding: "8px"}}><button className="delete-btn" onClick={handleDeleteClick}>Delete</button></td>
+        </tr>
+        {showModal && (
+        <ConfirmModal
+          message="Are you sure you want to delete this note?"
+          onConfirm={handleConfirm}
+          onCancel={handleCancel}
+        />
+      )}
+      </>
     );
 }
 export default NoteItem;
