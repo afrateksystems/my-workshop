@@ -1,0 +1,41 @@
+[{
+    "id":1,
+    "question":"what is your house number"
+},
+{
+    "id":2,
+    "question":"what is your school name" 
+},
+{
+    "id":3,
+    "question":"what is your childhood friend name " 
+},
+{
+    "id":4,
+    "question":"where is your hometown" 
+},
+{
+    "id":5,
+    "question":"what is your hobbies" 
+},
+{
+    "id":6,
+    "question":"what is cse" 
+},
+{
+    "id":7,
+    "question":"what is programming"
+},
+{
+    "id":8,
+    "question":"what is express" 
+},
+{
+    "id":9,
+    "question":"what is react" 
+},
+{
+    "id":10,
+    "question":"what is javascript" 
+}
+]
