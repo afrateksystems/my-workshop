@@ -84,6 +84,7 @@ function App() {
           onAnswerChange={handleAnswerChange}
           selectedQuestions={selectedQuestions.filter((_, i) => i !== index)}
           hideAnswers={hideAnswers}
+          answer={questionsData[index].answer}
         />
       ))}
      <label>Hide Answers:</label><input type="checkbox" checked={hideAnswers} onChange={handleCheckboxChange}></input>
