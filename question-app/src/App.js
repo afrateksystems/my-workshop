@@ -3,11 +3,11 @@ import QuestionCard from "./components/QuestionCard";
 
 function App() {
   const [questions, setQuestions] = useState([]);
-  const [selectedQuestions, setSelectedQuestions] = useState(["", "", ""]);
+  const [selectedQuestions, setSelectedQuestions] = useState(["","","","",""]);
  
-  const handleChange = (id, value) => {
+  const handleChange = (index, value) => {
     const updated = [...selectedQuestions];
-    updated[id] = value;
+    updated[index] = Number(value);
     setSelectedQuestions(updated);
   };
   useEffect(() => {
@@ -18,14 +18,15 @@ function App() {
 }, []);
   return (
     <div>
-      <h2>Questions you have to answer</h2>
-      {selectedQuestions.map((selected, id) => (
+      <h2>Security Questions</h2>
+      {selectedQuestions.map((selected, index) => (
         <QuestionCard
-          key={id}
-          index={id}
+          key={index}
+          index={index}
           questions={questions}
           selected={selected}
           onChange={handleChange}
+          selectedQuestions={selectedQuestions.filter((_, i) => i !== index)}
         />
       ))}
       
