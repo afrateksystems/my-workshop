@@ -1,7 +1,8 @@
 import React from "react";
+import "../App.css";
 const QuestionCard = ({ index, questions, selected, onChange,onAnswerChange,selectedQuestions,hideAnswers,answer}) => {
   return (
-    <div >
+    <div className="question-card">
       <label>Questions:  </label>
       <select value={selected} onChange={(e) => onChange(index, e.target.value)}>
         <option value="">select your question</option>

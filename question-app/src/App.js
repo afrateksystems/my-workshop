@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import QuestionCard from "./components/QuestionCard";
+import "./App.css";
 function App() {
   const [questions, setQuestions] = useState([]);
   const [hideAnswers, setHideAnswers] = useState(false);
@@ -72,7 +73,7 @@ function App() {
     .catch(err => console.error("Failed to load questions", err));
 }, []);
   return (
-    <div>
+    <div className="App">
       <h2>Security Questions</h2>
       {selectedQuestions.map((selected, index) => (
         <QuestionCard
@@ -87,7 +88,9 @@ function App() {
           answer={questionsData[index].answer}
         />
       ))}
+     <div className="checkbox-container">
      <label>Hide Answers:</label><input type="checkbox" checked={hideAnswers} onChange={handleCheckboxChange}></input>
+     </div>
      <button onClick={handleSubmit}>Submit</button>
     </div>
   );
