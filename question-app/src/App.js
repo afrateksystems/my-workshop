@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import QuestionCard from "./components/QuestionCard";
-
 function App() {
   const [questions, setQuestions] = useState([]);
   const [selectedQuestions, setSelectedQuestions] = useState(["","","","",""]);
- 
   const handleChange = (index, value) => {
     const updated = [...selectedQuestions];
     updated[index] = Number(value);
@@ -29,7 +27,8 @@ function App() {
           selectedQuestions={selectedQuestions.filter((_, i) => i !== index)}
         />
       ))}
-      
+     <label>Hide Answers:</label><input type="checkbox"></input>
+     <button>Submit</button>
     </div>
   );
 }
