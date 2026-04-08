@@ -1,5 +1,5 @@
 import React from "react";
-const QuestionCard = ({ index, questions, selected, onChange,selectedQuestions}) => {
+const QuestionCard = ({ index, questions, selected, onChange,onAnswerChange,selectedQuestions,hideAnswers,answer}) => {
   return (
     <div >
       <label>Questions:  </label>
@@ -9,7 +9,7 @@ const QuestionCard = ({ index, questions, selected, onChange,selectedQuestions})
         ))}
       </select>
       <br></br>
-      <input type="textbox" placeholder="answer"></input>
+      <input  placeholder="answer" type={hideAnswers ? "password" : "text"} value={answer} onChange={(e) => onAnswerChange(index, e.target.value)}></input>
       <input type="textbox" placeholder="ConfirmAnswer"></input>
       <br></br>
     </div>
