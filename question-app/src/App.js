@@ -79,6 +79,8 @@ function App() {
     .then(data => setQuestions(data))
     .catch(err => console.error("Failed to load questions", err));
 }, []);
+const isFormValid = selectedQuestions.every(q => q) &&
+  questionsData.every(q => q.answer.trim().length >= 3);
   return (
     <div className="App">
       <h2>Security Questions</h2>
@@ -99,7 +101,7 @@ function App() {
      <div className="checkbox-container">
      <label>Hide Answers:</label><input type="checkbox" checked={hideAnswers} onChange={handleCheckboxChange}></input>
      </div>
-     <button onClick={handleSubmit}>Submit</button>
+     <button onClick={handleSubmit} disabled={!isFormValid}>Submit</button>
     </div>
   );
 }
