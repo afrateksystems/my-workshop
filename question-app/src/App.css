@@ -105,3 +105,14 @@ button {
 button:hover {
   background: #5c5c5c;
 }
+
+.error-text {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+}
+
+.input-error {
+  border: 1px solid red;
+}

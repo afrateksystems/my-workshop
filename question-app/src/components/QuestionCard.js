@@ -1,6 +1,6 @@
 import React from "react";
 import "../App.css";
-const QuestionCard = ({ index, questions, selected, onChange,onAnswerChange,selectedQuestions,hideAnswers,answer}) => {
+const QuestionCard = ({ index, questions, selected, onChange,onAnswerChange,selectedQuestions,hideAnswers,answer,error,}) => {
   return (
     <div className="question-card">
       <label>Questions:  </label>
@@ -13,6 +13,7 @@ const QuestionCard = ({ index, questions, selected, onChange,onAnswerChange,sele
       <input  placeholder="answer" type={hideAnswers ? "password" : "text"} value={answer} onChange={(e) => onAnswerChange(index, e.target.value)}></input>
       <input type="textbox" placeholder="ConfirmAnswer"></input>
       <br></br>
+      {error && <span className="error-text">{error}</span>}
     </div>
     
   );

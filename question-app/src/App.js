@@ -12,6 +12,7 @@ function App() {
     { questionId: "", answer: ""  },
     { questionId: "", answer: ""  },
   ]);
+  const [errors, setErrors] = useState(["", "", "", "", ""]);
   const handleAnswerChange = (index, value) => {
   const updated = [...questionsData];
   updated[index].answer = value;
@@ -29,26 +30,33 @@ function App() {
   const handleCheckboxChange = (e) => {
   setHideAnswers(e.target.checked);
 };
-  const handleSubmit = () => {
-    //checking the empty questions is there 
-  if (selectedQuestions.some(q => !q)) {
-    alert("Please select all questions.");
-    return;
-  }
-  //Empty answers is there or not
-  if (questionsData.some(q => !q.answer.trim())) {
-    alert("Please answer all questions.");
-    return;
-  }
-  // answer length is too short
-  if (questionsData.some(q => q.answer.trim().length < 3)) {
-    alert("Answers must be at least 3 characters long.");
-    return;
-  }
+ const handleSubmit = () => {
+  const newErrors = ["", "", "", "", ""];
+
+  // Check empty questions
+  selectedQuestions.forEach((q, i) => {
+    if (!q) newErrors[i] = "Please select a question.";
+  });
+
+  // Check empty answers
+  questionsData.forEach((q, i) => {
+    if (!q.answer.trim()) {
+      newErrors[i] = "Please enter an answer.";
+    } else if (q.answer.trim().length < 3) {
+      newErrors[i] = "Answer must be at least 3 characters.";
+    }
+  });
+
+  setErrors(newErrors);
+
+  // Stop if any error exists
+  if (newErrors.some(err => err)) return;
+
   const payload = questionsData.map(q => ({
     questionId: q.questionId,
     answer: q.answer,
   }));
+
   fetch("http://localhost:5000/submit-answers", {
     method: "POST",
     headers: {
@@ -62,7 +70,6 @@ function App() {
     })
     .then((data) => {
       console.log("Submitted successfully:", data);
-      alert("Answers submitted successfully!");
     })
     .catch((err) => console.error(err));
 };
@@ -86,6 +93,7 @@ function App() {
           selectedQuestions={selectedQuestions.filter((_, i) => i !== index)}
           hideAnswers={hideAnswers}
           answer={questionsData[index].answer}
+          error={errors[index]}
         />
       ))}
      <div className="checkbox-container">
