@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.entity.Note;
 import com.example.demo.services.NoteServices;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping(path = "/notes")
 public class NoteController {
@@ -18,7 +20,7 @@ public class NoteController {
 	NoteServices noteService;
 	
 	@GetMapping
-	Note getNotes() {
+	Iterable<Note> getNotes() {
 		return noteService.getNotes();
 	}
 	@PostMapping
