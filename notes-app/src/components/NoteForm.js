@@ -42,7 +42,7 @@ function NoteForm({ addNote}){
         //setNote("");
     };
     const sendPostRequest = (note)=>{
-     axios.post("http://localhost:3001/notes",note,{
+     axios.post("http://localhost:8080/notes",note,{
         headers:{
             "content-type":"application/json",
         },

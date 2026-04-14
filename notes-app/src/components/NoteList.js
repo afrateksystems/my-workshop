@@ -3,12 +3,13 @@ import StatusBarGraph from "./StatusBarGraph";
 import React, { useState, useEffect } from "react";
 function NoteList({notes,deleteNote}){
     const [searchInput, setSearchInput] = useState("");
-    const [filteredNotes, setFilteredNotes] = useState(notes);
+    const [filteredNotes, setFilteredNotes] = useState([]);
     useEffect(() => {
-        const result = notes.filter(
-            (note) => note.title.toLowerCase().includes(searchInput.toLowerCase()) || note.content.toLowerCase().includes(searchInput.toLowerCase()));
-            setFilteredNotes(result);
-        }, [notes, searchInput]);
+    const result = notes.filter(
+        (note) =>
+            note.title.toLowerCase().includes(searchInput.toLowerCase()) || note.content.toLowerCase().includes(searchInput.toLowerCase()));
+        setFilteredNotes(result);
+    }, [notes, searchInput]);
     const displayedNotes = [...filteredNotes].sort((a, b) => a.priority - b.priority);
 
     return (

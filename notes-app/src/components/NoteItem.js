@@ -6,10 +6,18 @@ function NoteItem({note,deleteNote}){
     const handleDeleteClick = () => {
         setShowModal(true);
     };
-    const handleConfirm = () => {
+    const handleConfirm = async () => {
+    try {
+        await fetch(`http://localhost:8080/notes/${note.id}`, {
+            method: 'DELETE',
+        });
         deleteNote(note.id);
+        console.log(note.id);
         setShowModal(false);
-    };
+    } catch (error) {
+        console.error("Error deleting note:", error);
+    }
+};
     const handleCancel = () => {
         setShowModal(false);
     };

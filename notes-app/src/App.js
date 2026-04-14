@@ -1,16 +1,20 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import NoteForm from './components/NoteForm';
 import NoteList from './components/NoteList';
 
 function App() {
   const [notes,setNotes] = useState([]);
+  useEffect(() => {
+  fetch("http://localhost:8080/notes")
+    .then(res => res.json())
+    .then(data => setNotes(data))
+    .catch(err => console.error("Fetch error:", err));
+}, []);
   const [view ,setView] = useState("display");
-  const addNote = (note) =>{
-    const newNote = { ...note };
-    newNote.id = Date.now();
-    setNotes([...notes,newNote]);
-  };
+  const addNote = (note) => {
+  setNotes(prev => [...prev, note]);
+};
   const deleteNote = (id) =>{
     setNotes(notes.filter((n) => n.id !== id));
   };
