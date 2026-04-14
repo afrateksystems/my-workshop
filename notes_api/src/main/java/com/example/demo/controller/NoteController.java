@@ -1,7 +1,9 @@
 package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,17 +17,22 @@ import jakarta.validation.Valid;
 @RestController
 @RequestMapping(path = "/notes")
 public class NoteController {
-	
+
 	@Autowired
 	NoteServices noteService;
-	
+
 	@GetMapping
 	Iterable<Note> getNotes() {
 		return noteService.getNotes();
 	}
+
 	@PostMapping
-	    void addNote(@RequestBody @Valid Note note) {
+	void addNote(@RequestBody @Valid Note note) {
 		noteService.createNote(note);
 	}
-	
+	@DeleteMapping("/{id}")
+	void deleteNote(@PathVariable Long id) {
+	    noteService.deleteNote(id);
+	}
+
 }

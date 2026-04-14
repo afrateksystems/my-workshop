@@ -10,14 +10,17 @@ import com.example.demo.repositories.NoteRepository;
 public class NoteServices {
 	@Autowired
 	NoteRepository noteRespository;
-	
-	public Iterable<Note> getNotes(){
+
+	public Iterable<Note> getNotes() {
 		return noteRespository.findAll();
 	}
-	
-	 
+
 	public void createNote(Note note) {
-		System.out.println(note.getId());
-		System.out.println(note.getTitle());
+		// System.out.println(note.getId());
+		// System.out.println(note.getTitle());
+		noteRespository.save(note);
+	}
+	public void deleteNote(Long id) {
+	    noteRespository.deleteById(id);
 	}
 }

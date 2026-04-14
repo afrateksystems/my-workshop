@@ -14,6 +14,7 @@ public class GlobalExecptionHandler {
 	public String handleExceptions(Exception ex) {
 		return "something went wrong";
 	}
+
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public Map<String, String> handleValidationExceptions(MethodArgumentNotValidException ex) {
 		Map<String, String> errors = new HashMap<>();

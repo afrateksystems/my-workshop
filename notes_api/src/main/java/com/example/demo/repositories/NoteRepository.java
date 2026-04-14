@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.entity.Note;
 
 @Repository
-public interface NoteRepository extends CrudRepository<Note,Integer>{
-	
+public interface NoteRepository extends CrudRepository<Note, Long> {
 
 }
