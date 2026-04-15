@@ -24,6 +24,10 @@ const OrderForm = () =>{
         console.error("Error submitting order:", error);
     }
 };
+    const handleRemoveItem = (index) => {
+    const updatedList = orderLines.filter((_, i) => i !== index);
+    setOrderLines(updatedList);
+};
     const handleAddItem =() =>{
         if (!item || !price) return;
         const newLine = {
@@ -45,9 +49,11 @@ const OrderForm = () =>{
             <button className="add-btn" onClick={handleAddItem}>Add Item</button>
             <ul>
                 {orderLines.map((line, index) => (
-                    <li key={index}>
-                        {line.item} - ₹{line.price}
+                    <li key={index} className="order-item">
+                        <span>{line.item} - ₹{line.price}</span>
+                        <button className="remove-btn" onClick={() => handleRemoveItem(index)}>Discard</button>
                     </li>
+                    
                 ))}
             </ul>
             <button className="submit-btn" onClick={handleSubmit}>Submit</button>
