@@ -97,3 +97,27 @@ li span:last-child {
     color: #9ca3af;
     margin-top: 15px;
 }
+.remove-btn {
+    background: #ffffff;
+    border: 1px solid #ef4444; 
+    color: rgb(0, 0, 0);
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    margin-left: 10px;
+}
+.remove-btn:hover {
+    background: #ff0000;
+    border-color: #ef4444;
+    color: #eef2ff;
+    transform: scale(1.05);
+}
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f9fafb;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+}
