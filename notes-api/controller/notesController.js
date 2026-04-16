@@ -12,9 +12,8 @@ exports.getNoteById = async (request,response) =>{
     response.json(note);
 };
 exports.createNote = async(request,response) =>{
-    const{title,content} = request.body;
-    const status = "created";
-    const createdAt = Date();
+    const{title,content,date,time,status,priority} = request.body;
+     
     if(!title || !content){
         return response.status(400).json({error:'title & content required'});
     }
@@ -24,8 +23,10 @@ exports.createNote = async(request,response) =>{
         id: Date.now(),
         title,
         content,
+        date,
+        time,
         status,
-        createdAt
+        priority
     };
     notes.push(newNote);
     await service.saveNotes(notes);
@@ -42,14 +43,17 @@ exports.updateNote = async(request,response) =>{
     if (!noteExists) {
         return response.status(404).json({ error: 'Not Found' });
     }
-    if("createdAt" in request.body){
-        return response.status(400).json({ error: 'date cannot be changed' });
-    }
+    // if("createdAt" in request.body){
+    //     return response.status(400).json({ error: 'date cannot be changed' });
+    // }
     const newstatus = request.body.status;
     if (newstatus !== undefined){
-    if(newstatus.toLowerCase() !== "closed"){
-        return response.status(400).json({ error: 'closed status cannot be changed' });
-    }}
+        if(newstatus.toLowerCase() !== "closed"){
+                 return response.status(400).json({ error: 'closed status cannot be changed' });
+     }}
+    if ("date" in request.body || "time" in request.body) {
+    return response.status(400).json({ error: 'date/time cannot be changed' });
+    }
     const updated = notes.map(n=>
         n.id == request.params.id?{...n,...request.body}:n
     );
