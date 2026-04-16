@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.FieldError;
@@ -26,10 +27,15 @@ import com.example.demo.service.NoteService;
 import jakarta.validation.Valid;
 @RestController
 @RequestMapping("/order")
-@CrossOrigin(origins = "http://localhost:3000")
 public class NoteController {
+	@Value("${com.tek.cors.url}")
+	private String corsUrl;
+	
 	@Autowired
 	NoteService noteService;
+	
+	@CrossOrigin(origins = "${com.tek.cors.url}") 
+	
 	@GetMapping("/{id}")
 	Optional<Order1> getOrderById(@PathVariable Integer id) {
 		return noteService.getOrderById(id);

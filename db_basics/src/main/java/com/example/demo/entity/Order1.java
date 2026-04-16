@@ -4,10 +4,10 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
-
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -28,8 +28,16 @@ public class Order1 {
     private OrderStatus status;
 	@CreationTimestamp
 	private LocalDateTime createdAt;
+	@Embedded 
+    private Address address;
 	public OrderStatus getStatus() {
 		return status;
+	}
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 	public void setStatus(OrderStatus status) {
 		this.status = status;

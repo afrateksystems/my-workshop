@@ -6,11 +6,11 @@ function App() {
   const [hideAnswers, setHideAnswers] = useState(false);
   const [selectedQuestions, setSelectedQuestions] = useState(["","","","",""]);
    const [questionsData, setQuestionsData] = useState([
-    { questionId: "", answer: ""  },
-    { questionId: "", answer: ""  },
-    { questionId: "", answer: ""  },
-    { questionId: "", answer: ""  },
-    { questionId: "", answer: ""  },
+    { questionId: "", answer: "", confirmAnswer: ""   },
+    { questionId: "", answer: "" , confirmAnswer: ""  },
+    { questionId: "", answer: "" , confirmAnswer: ""  },
+    { questionId: "", answer: "" , confirmAnswer: ""  },
+    { questionId: "", answer: "" , confirmAnswer: ""  },
   ]);
   const [errors, setErrors] = useState(["", "", "", "", ""]);
   const handleAnswerChange = (index, value) => {
@@ -18,40 +18,49 @@ function App() {
   updated[index].answer = value;
   updated[index].questionId = selectedQuestions[index]; 
   setQuestionsData(updated);
+  const newErrors = validate(selectedQuestions, updated);
+  setErrors(newErrors);
+};
+const handleConfirmAnswerChange = (index, value) => {
+  const updated = [...questionsData];
+  updated[index].confirmAnswer = value;
+  setQuestionsData(updated);
+  const newErrors = validate(selectedQuestions, updated);
+  setErrors(newErrors);
+};
+  const validate = (questions, answers) => {
+  const errors = ["", "", "", "", ""];
+
+  questions.forEach((q, i) => {
+    if (!q) {
+      errors[i] = "Please select a question.";
+    } else if (!answers[i].answer.trim()) {
+      errors[i] = "Please enter an answer.";
+    } else if (answers[i].answer.trim().length < 3) {
+      errors[i] = "Answer must be at least 3 characters.";
+    } else if (!answers[i].confirmAnswer.trim()) {
+      errors[i] = "Please confirm your answer.";
+    } else if (answers[i].answer !== answers[i].confirmAnswer) {
+      errors[i] = "Answers do not match.";
+    }
+  });
+
+  return errors;
 };
   const handleChange = (index, value) => {
     const updatedQuestions = [...selectedQuestions];
     updatedQuestions[index] = Number(value);
     const updatedAnswers = [...questionsData];
-    updatedAnswers[index] = { questionId: Number(value), answer: "" };
+    updatedAnswers[index] = { questionId: Number(value), answer: "" , confirmAnswer: ""};
     setSelectedQuestions(updatedQuestions);
     setQuestionsData(updatedAnswers);
+    const newErrors = validate(updatedQuestions, updatedAnswers);
+    setErrors(newErrors);
   };
   const handleCheckboxChange = (e) => {
   setHideAnswers(e.target.checked);
 };
  const handleSubmit = () => {
-  const newErrors = ["", "", "", "", ""];
-
-  // Check empty questions
-  selectedQuestions.forEach((q, i) => {
-    if (!q) newErrors[i] = "Please select a question.";
-  });
-
-  // Check empty answers
-  questionsData.forEach((q, i) => {
-    if (!q.answer.trim()) {
-      newErrors[i] = "Please enter an answer.";
-    } else if (q.answer.trim().length < 3) {
-      newErrors[i] = "Answer must be at least 3 characters.";
-    }
-  });
-
-  setErrors(newErrors);
-
-  // Stop if any error exists
-  if (newErrors.some(err => err)) return;
-
   const payload = questionsData.map(q => ({
     questionId: q.questionId,
     answer: q.answer,
@@ -80,7 +89,7 @@ function App() {
     .catch(err => console.error("Failed to load questions", err));
 }, []);
 const isFormValid = selectedQuestions.every(q => q) &&
-  questionsData.every(q => q.answer.trim().length >= 3);
+  questionsData.every(q => q.answer.trim().length >= 3 && q.confirmAnswer.trim().length > 0 && q.answer === q.confirmAnswer);
   return (
     <div className="App">
       <h2>Security Questions</h2>
@@ -92,9 +101,11 @@ const isFormValid = selectedQuestions.every(q => q) &&
           selected={selected}
           onChange={handleChange}
           onAnswerChange={handleAnswerChange}
+          onConfirmAnswerChange={handleConfirmAnswerChange} 
           selectedQuestions={selectedQuestions.filter((_, i) => i !== index)}
           hideAnswers={hideAnswers}
           answer={questionsData[index].answer}
+          confirmAnswer={questionsData[index].confirmAnswer}
           error={errors[index]}
         />
       ))}
@@ -105,5 +116,4 @@ const isFormValid = selectedQuestions.every(q => q) &&
     </div>
   );
 }
-
 export default App;

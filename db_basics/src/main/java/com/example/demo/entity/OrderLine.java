@@ -9,14 +9,30 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class OrderLine {
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Id
-	private int id;
-	
+	 @GeneratedValue(strategy = GenerationType.AUTO)
+	    @Id
+	    private int id;
+
+	    @NotNull
+	    @Min(value = 1, message = "Quantity must be at least 1")
+	    private int quantity;
+
+	    @NotEmpty(message = "Item name cannot be empty")
+	    private String item;
+
+	    @Min(value = 1, message = "Price must be greater than or equal to 1")
+	    private float price;
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
 	
 	public int getId() {
 		return id;
@@ -24,10 +40,7 @@ public class OrderLine {
 	public void setId(int id) {
 		this.id = id;
 	}
-	@NotBlank
-	private String item;
-	@Min(value = 1)
-	private float price;
+	 
 	@ManyToOne
 	@JoinColumn(name = "order_id")
 	@JsonBackReference

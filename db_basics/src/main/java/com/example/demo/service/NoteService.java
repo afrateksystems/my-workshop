@@ -29,9 +29,9 @@ public Integer addOrder(Order1 order1) throws IOException {
 	if (order1.getOrderLines() != null) {
         order1.getOrderLines().forEach(line -> line.setOrder(order1));
     }
-	//paymentService.processPayment();
+	 
     Order1 savedorder = order1Repository.save(order1);
-	//emailService.send(order1.getId());
+	 
 	return savedorder.getId();
 }
 	public Optional<Order1> getOrderById(Integer id) {
